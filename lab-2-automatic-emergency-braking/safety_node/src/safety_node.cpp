@@ -23,6 +23,9 @@ public:
         */
 
         /// TODO: create ROS subscribers and publishers
+        rclcpp::Subscription<ackermann_msgs::msg::AckermannDriveStamped>::SharedPtr sub_=this->create_subscription<ackermann_msgs::msg::AckermannDriveStamped>(
+            "/drive", 10, std::bind(&Safety::scan_callback, this, std::placeholders::_1));
+
         
     }
 
